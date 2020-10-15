@@ -15,7 +15,6 @@ def first_site():
     for i in range(len(lat)):
         converted_lat.append(float(lat[i]))
         converted_lon.append(float(lon[i]))
-        # phones.append(phones_item[i])
     latlon = list(zip(converted_lat, converted_lon))
     name = t.xpath("//div[@class='shop-name']/text()")
     address = t.xpath("//div[@class='shop-address']/text()")
