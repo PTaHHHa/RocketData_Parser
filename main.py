@@ -1,6 +1,7 @@
 import requests
 from lxml import html
 import json
+import re
 
 
 def first_site():
@@ -81,8 +82,9 @@ def second_site():
                                 for item in raw_phone_list if item != '']
         formatted_phone_number.append(formatted_phone_list)
     for i in range(len(weekdays)):
+        formatted_address = re.sub('[^а-яА-Яa-zA-Z0-9., ]', '', address[i])
         parsed_data.append({
-            "address": address[i],
+            "address": formatted_address,
             "latlon": latlon[i],
             "name": name[i],
             "phones": formatted_phone_number[i],
